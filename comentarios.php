@@ -12,8 +12,16 @@ and open the template in the editor.
     <body>
         <?php
         session_start();
-        $usuario=$_SESSION['usuario'];//AQUI VA EL NOMBRE
-        $id_usuario=$_SESSION['id'];
+        
+        if(isset($SESSION['usuario']))
+        {
+            $usuario=$_SESSION['usuario'];//AQUI VA EL NOMBRE
+             $id_usuario=$_SESSION['id'];
+        }
+ else {
+     header("location: index.php?msg=1");//El cliente no está logueado
+ }
+       
         //Tengo que ver si vengo de login o vengo de un submit de comentarios.php
         
         if (isset($_POST['comentario']))

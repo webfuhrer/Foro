@@ -23,6 +23,7 @@ if ($conexion)
 
     {
         echo "No hay resultados";
+        header("location: index.php?msg=2");
     }
 }
 /* 
